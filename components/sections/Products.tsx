@@ -21,7 +21,12 @@ const Ic = {
   userCog:   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 0 4-4h4"/><circle cx="19" cy="15" r="2"/><path d="m18.5 19-1 1"/><path d="m20.5 19 1 1"/></svg>,
 };
 
-const FeatureCheck = ({ children, color = 'var(--sb-green-400)' }) => (
+interface FeatureCheckProps {
+  children: React.ReactNode;
+  color?: string;
+}
+
+const FeatureCheck = ({ children, color = 'var(--sb-green-400)' }: FeatureCheckProps) => (
   <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10,
       fontSize: 15, color: 'var(--fg-1)', fontWeight: 500, lineHeight: 1.45 }}>
     <span style={{
@@ -175,7 +180,12 @@ const PortalMockup = () => (
 
 // ===== POS MOCKUP — Staff app =====
 const PosMockup = () => {
-  const NavRow = ({ icon, label, active = false }) => (
+  interface NavRowProps {
+    icon: React.ReactNode;
+    label: string;
+    active?: boolean;
+  }
+  const NavRow = ({ icon, label, active = false }: NavRowProps) => (
     <div style={{
       display: 'flex', alignItems: 'center', gap: 8,
       padding: '5px 10px', fontSize: 11, fontWeight: active ? 700 : 500,
@@ -187,7 +197,7 @@ const PosMockup = () => {
       {icon}{label}
     </div>
   );
-  const GroupLabel = ({ children }) => (
+  const GroupLabel = ({ children }: { children: React.ReactNode }) => (
     <div style={{
       fontSize: 9, fontWeight: 700, letterSpacing: '0.16em',
       textTransform: 'uppercase', color: '#A1A1AA',

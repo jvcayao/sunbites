@@ -49,7 +49,14 @@ export const HowSection = ({ id, eyebrow, title, intro, children, dark = false }
   </section>
 );
 
-export const StepCard = ({ n, title, body, accent = 'var(--sb-red-500)' }) => (
+interface StepCardProps {
+  n: string | number;
+  title: string;
+  body: string;
+  accent?: string;
+}
+
+export const StepCard = ({ n, title, body, accent = 'var(--sb-red-500)' }: StepCardProps) => (
   <div style={{
     background: '#FFFFFF', borderRadius: 18,
     border: '2.5px solid var(--sb-ink-900)',
