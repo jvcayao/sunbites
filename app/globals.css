@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;500;600;700;800;900&family=Caveat:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  /* Sunbites brand palette — primitives */
+  --color-sb-red-50:  #FFF1F0;
+  --color-sb-red-100: #FFD9D6;
+  --color-sb-red-200: #FFADA6;
+  --color-sb-red-300: #FF7A70;
+  --color-sb-red-400: #F04E42;
+  --color-sb-red-500: #E5322A;
+  --color-sb-red-600: #C81E18;
+  --color-sb-red-700: #9C140F;
+  --color-sb-yellow-50:  #FFFBEB;
+  --color-sb-yellow-100: #FFF1B8;
+  --color-sb-yellow-200: #FFE27A;
+  --color-sb-yellow-300: #FFD23F;
+  --color-sb-yellow-400: #F4B400;
+  --color-sb-green-50:  #F0FAF1;
+  --color-sb-green-100: #D6F0D9;
+  --color-sb-green-200: #A6DDAD;
+  --color-sb-green-400: #3FAA4B;
+  --color-sb-green-500: #2E8C39;
+  --color-sb-cream-50:  #FFFDF7;
+  --color-sb-cream-100: #FFF9EC;
+  --color-sb-cream-200: #FBF1DC;
+  --color-sb-ink-100: #E8E0D2;
+  --color-sb-ink-300: #B7AC9A;
+  --color-sb-ink-500: #6E6557;
+  --color-sb-ink-700: #3A342B;
+  --color-sb-ink-900: #1A1611;
+
+  /* Shadcn-ish semantic tokens (kept for cross-app consistency with sunbites-portal/pos) */
+  --color-background: #FFF9EC;
+  --color-foreground: #1A1611;
+  --color-primary: #E5322A;
+  --color-primary-foreground: #FFFFFF;
+  --color-muted: #FBF1DC;
+  --color-muted-foreground: #6E6557;
+  --color-border: #E8E0D2;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1611;
+
+  /* Fonts */
+  --font-display: 'Bagel Fat One', system-ui, sans-serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+  --font-hand:    'Caveat', cursive;
+  --font-app:     'Poppins', system-ui, sans-serif;
+}
+
+/* Legacy CSS variables for inline-styled components ported from the HTML build */
+:root {
+  --sb-red-50:  #FFF1F0;  --sb-red-100: #FFD9D6;  --sb-red-200: #FFADA6;
+  --sb-red-300: #FF7A70;  --sb-red-400: #F04E42;  --sb-red-500: #E5322A;
+  --sb-red-600: #C81E18;  --sb-red-700: #9C140F;  --sb-red-800: #6E0A07;
+  --sb-yellow-50:  #FFFBEB; --sb-yellow-100: #FFF1B8; --sb-yellow-200: #FFE27A;
+  --sb-yellow-300: #FFD23F; --sb-yellow-400: #F4B400; --sb-yellow-500: #D69400;
+  --sb-yellow-600: #A36F00;
+  --sb-green-50:  #F0FAF1; --sb-green-100: #D6F0D9; --sb-green-200: #A6DDAD;
+  --sb-green-300: #6FC477; --sb-green-400: #3FAA4B; --sb-green-500: #2E8C39;
+  --sb-green-600: #20682A;
+  --sb-cream-50:  #FFFDF7; --sb-cream-100: #FFF9EC; --sb-cream-200: #FBF1DC;
+  --sb-cream-300: #F2E4C2;
+  --sb-ink-100: #E8E0D2; --sb-ink-300: #B7AC9A; --sb-ink-500: #6E6557;
+  --sb-ink-700: #3A342B; --sb-ink-900: #1A1611;
+
+  --color-brand: var(--sb-red-500);
+  --color-bg:    var(--sb-cream-100);
+  --color-accent: var(--sb-yellow-300);
+  --color-fresh:  var(--sb-green-400);
+  --fg-1: var(--sb-ink-900);
+  --fg-2: var(--sb-ink-700);
+  --fg-3: var(--sb-ink-500);
+  --fg-on-brand: #FFFFFF;
+  --fg-on-accent: var(--sb-ink-900);
+  --border-1: var(--sb-ink-100);
+  --border-strong: var(--sb-ink-900);
+
+  --font-display: 'Bagel Fat One', system-ui, sans-serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+  --font-hand:    'Caveat', cursive;
+}
+
+@layer base {
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body {
+    background: var(--color-bg);
+    color: var(--fg-1);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--sb-yellow-300); color: var(--sb-ink-900); }
+}
+
+@keyframes sb-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(4deg); }
+}
+
+.sb-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sb-reveal.is-visible { opacity: 1; transform: translateY(0); }
