@@ -6,7 +6,16 @@ import { SbButton, SbBadge, SbNoise, SbHeart } from "@/components/primitives";
 // Sections cover: 3-piece system overview, Wallet deep-dive, POS deep-dive,
 // Portal deep-dive, Benefits for kids, Benefits for parents
 
-export const HowSection = ({ id, eyebrow, title, intro, children, dark = false }) => (
+interface HowSectionProps {
+  id?: string;
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  children?: React.ReactNode;
+  dark?: boolean;
+}
+
+export const HowSection = ({ id, eyebrow, title, intro, children, dark = false }: HowSectionProps) => (
   <section id={id} style={{
     background: dark ? 'var(--sb-ink-900)' : 'var(--sb-cream-100)',
     color: dark ? '#fff' : 'var(--fg-1)',
