@@ -105,3 +105,121 @@
   transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .sb-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ─── Responsive layout utilities ────────────────────────────── */
+
+/* Nav */
+.sb-nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+@media (min-width: 1024px) { .sb-nav-inner { padding: 14px 32px; } }
+
+.sb-nav-links { display: none; align-items: center; gap: 24px; font-weight: 700; font-size: 15px; }
+@media (min-width: 768px) { .sb-nav-links { display: flex; } }
+
+.sb-nav-cta { display: none; }
+@media (min-width: 768px) { .sb-nav-cta { display: inline-flex; } }
+
+.sb-hamburger { display: flex; align-items: center; justify-content: center; }
+@media (min-width: 768px) { .sb-hamburger { display: none; } }
+
+.sb-mobile-menu { display: none; flex-direction: column; }
+.sb-mobile-menu.open { display: flex; }
+@media (min-width: 768px) { .sb-mobile-menu { display: none !important; } }
+
+/* Section padding */
+.sb-section-pad { padding: 72px 20px; }
+@media (min-width: 640px) { .sb-section-pad { padding: 88px 24px; } }
+@media (min-width: 1024px) { .sb-section-pad { padding: 120px 32px; } }
+
+.sb-section-pad-sm { padding: 56px 20px; }
+@media (min-width: 640px) { .sb-section-pad-sm { padding: 72px 24px; } }
+@media (min-width: 1024px) { .sb-section-pad-sm { padding: 88px 32px; } }
+
+/* Hero */
+.sb-hero-section { padding: 48px 20px 72px; }
+@media (min-width: 640px) { .sb-hero-section { padding: 56px 24px 80px; } }
+@media (min-width: 1024px) { .sb-hero-section { padding: 64px 32px 96px; } }
+
+.sb-hero-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr;
+  gap: 48px; align-items: center; position: relative; z-index: 1;
+}
+@media (min-width: 1024px) {
+  .sb-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; }
+}
+
+.sb-hero-img { position: relative; min-height: 320px; }
+@media (min-width: 640px) { .sb-hero-img { min-height: 420px; } }
+@media (min-width: 1024px) { .sb-hero-img { min-height: 560px; } }
+
+/* Generic grids */
+.sb-grid-2 { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 768px) { .sb-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
+
+.sb-grid-2-sm { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .sb-grid-2-sm { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.sb-grid-3 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .sb-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .sb-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+
+.sb-grid-4 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (min-width: 1024px) { .sb-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.sb-grid-5 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .sb-grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .sb-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+/* Problem stat row */
+.sb-problem-stat { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; margin-bottom: 56px; }
+@media (min-width: 768px) { .sb-problem-stat { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; margin-bottom: 80px; } }
+
+/* Solution before/after */
+.sb-before-after { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; margin-bottom: 64px; }
+@media (min-width: 768px) { .sb-before-after { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 24px; margin-bottom: 96px; } }
+
+.sb-ba-arrow { display: flex; justify-content: center; align-items: center; padding: 4px 0; }
+.sb-ba-arrow-icon { transform: rotate(90deg); }
+@media (min-width: 768px) { .sb-ba-arrow-icon { transform: rotate(0deg); } }
+
+/* Menu day cards */
+.sb-menu-days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 640px) { .sb-menu-days { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+@media (min-width: 1024px) { .sb-menu-days { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; } }
+
+/* Month breakdown — scrollable on mobile */
+.sb-month-scroll { overflow-x: auto; padding-bottom: 8px; }
+@media (min-width: 640px) { .sb-month-scroll { overflow-x: visible; padding-bottom: 0; } }
+.sb-month-grid { display: grid; grid-template-columns: repeat(5, minmax(72px, 1fr)); gap: 6px; min-width: 360px; }
+@media (min-width: 640px) { .sb-month-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); min-width: 0; } }
+
+/* Products wallet section */
+.sb-wallet-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; position: relative; }
+@media (min-width: 1024px) { .sb-wallet-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; } }
+
+/* Testimonials */
+.sb-testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: flex-start; }
+@media (min-width: 768px) { .sb-testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; } }
+
+/* Footer */
+.sb-footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+@media (min-width: 640px) { .sb-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
+@media (min-width: 1024px) { .sb-footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; } }
+
+/* Portal feature cards */
+.sb-portal-features { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .sb-portal-features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
+
+/* Responsive hide/show */
+.sb-hide-mobile { display: none; }
+@media (min-width: 1024px) { .sb-hide-mobile { display: block; } }
+.sb-hide-desktop { display: block; }
+@media (min-width: 1024px) { .sb-hide-desktop { display: none; } }
+
+/* Max-width containers */
+.sb-container { max-width: 1280px; margin: 0 auto; }
+.sb-container-md { max-width: 1100px; margin: 0 auto; }

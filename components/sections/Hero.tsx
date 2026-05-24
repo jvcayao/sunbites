@@ -1,14 +1,9 @@
 import * as React from "react";
 import { SbButton, SbBadge, SbNoise, SbHeart } from "@/components/primitives";
 
-// Hero section — Storydoc-pattern bold opener
 export const Hero = () => {
   return (
-    <section id="top" style={{
-      position: 'relative',
-      padding: '64px 32px 96px',
-      overflow: 'hidden',
-    }}>
+    <section id="top" className="sb-hero-section" style={{ position: 'relative', overflow: 'hidden' }}>
       <SbNoise opacity={0.05} />
 
       {/* Background sunburst */}
@@ -24,13 +19,7 @@ export const Hero = () => {
         </g>
       </svg>
 
-      <div style={{
-        maxWidth: 1280, margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 1fr)',
-        gap: 64, alignItems: 'center',
-        position: 'relative', zIndex: 1,
-      }}>
+      <div className="sb-hero-grid">
         {/* LEFT — copy */}
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 24 }}>
@@ -40,11 +29,11 @@ export const Hero = () => {
           <h1 style={{
             fontFamily: 'var(--font-body)',
             fontWeight: 900,
-            fontSize: 'clamp(48px, 6.5vw, 88px)',
+            fontSize: 'clamp(40px, 6.5vw, 88px)',
             lineHeight: 0.98,
             letterSpacing: '-0.025em',
             color: 'var(--fg-1)',
-            margin: '0 0 28px',
+            margin: '0 0 24px',
             textWrap: 'balance',
           }}>
             Healthy meals your kids will{' '}
@@ -59,15 +48,15 @@ export const Hero = () => {
           </h1>
 
           <p style={{
-            fontSize: 20, lineHeight: 1.5, color: 'var(--fg-2)',
-            maxWidth: 560, margin: '0 0 36px', fontWeight: 500,
+            fontSize: 'clamp(16px, 2vw, 20px)', lineHeight: 1.5, color: 'var(--fg-2)',
+            maxWidth: 560, margin: '0 0 32px', fontWeight: 500,
           }}>
             Sunbites is a school canteen that swaps chips and instant noodles for{' '}
             <strong style={{ color: 'var(--fg-1)' }}>rice meals, fresh fruit, and real veggies</strong>{' '}
             — cooked fresh every morning, served by people who know your kid's name.
           </p>
 
-          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center', marginBottom: 32 }}>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center', marginBottom: 28 }}>
             <SbButton variant="primary" size="lg" href="#cta">
               Bring Sunbites to your school
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -78,19 +67,19 @@ export const Hero = () => {
           </div>
 
           {/* Mini trust strip */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 8, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex' }}>
               {['#FFD23F', '#3FAA4B', '#E5322A', '#FFD23F'].map((c, i) => (
                 <div key={i} style={{
-                  width: 36, height: 36, borderRadius: 999,
+                  width: 34, height: 34, borderRadius: 999,
                   background: c, border: '2.5px solid var(--sb-ink-900)',
                   marginLeft: i === 0 ? 0 : -10,
                   display: 'grid', placeItems: 'center',
-                  fontWeight: 900, fontSize: 14, color: i === 2 ? '#fff' : 'var(--sb-ink-900)',
+                  fontWeight: 900, fontSize: 13, color: i === 2 ? '#fff' : 'var(--sb-ink-900)',
                 }}>{['N','A','M','J'][i]}</div>
               ))}
             </div>
-            <div style={{ fontSize: 14, color: 'var(--fg-2)', fontWeight: 600, lineHeight: 1.3 }}>
+            <div style={{ fontSize: 13, color: 'var(--fg-2)', fontWeight: 600, lineHeight: 1.3 }}>
               Trusted by <strong style={{ color: 'var(--fg-1)' }}>200+ Filipino families</strong><br />
               at our Antipolo &amp; Iloilo integrated-school branches
             </div>
@@ -98,14 +87,15 @@ export const Hero = () => {
         </div>
 
         {/* RIGHT — photo collage */}
-        <div style={{ position: 'relative', minHeight: 560 }}>
-          {/* Main photo — counter */}
+        <div className="sb-hero-img">
+          {/* Main photo */}
           <div style={{
-            position: 'absolute', top: 0, right: 0, width: '92%', height: 380,
-            borderRadius: 28, overflow: 'hidden',
-            border: '6px solid var(--sb-yellow-300)',
+            position: 'absolute', top: 0, right: 0, width: '92%', height: '68%',
+            minHeight: 220,
+            borderRadius: 24, overflow: 'hidden',
+            border: '5px solid var(--sb-yellow-300)',
             outline: '2.5px solid var(--sb-ink-900)',
-            boxShadow: '10px 10px 0 var(--sb-ink-900)',
+            boxShadow: '8px 8px 0 var(--sb-ink-900)',
             transform: 'rotate(2deg)',
             background: '#000',
           }}>
@@ -114,13 +104,14 @@ export const Hero = () => {
             }} />
           </div>
 
-          {/* Secondary photo — students lunch */}
+          {/* Secondary photo */}
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, width: '52%', height: 240,
-            borderRadius: 20, overflow: 'hidden',
+            position: 'absolute', bottom: 0, left: 0, width: '48%', height: '42%',
+            minHeight: 140,
+            borderRadius: 18, overflow: 'hidden',
             border: '4px solid #FFFFFF',
             outline: '2.5px solid var(--sb-ink-900)',
-            boxShadow: '6px 6px 0 var(--sb-ink-900)',
+            boxShadow: '5px 5px 0 var(--sb-ink-900)',
             transform: 'rotate(-4deg)',
             zIndex: 2,
           }}>
@@ -129,41 +120,41 @@ export const Hero = () => {
             }} />
           </div>
 
-          {/* Sticker chip — "naubos po!" */}
+          {/* Sticker */}
           <div style={{
-            position: 'absolute', bottom: 56, right: -8, zIndex: 3,
+            position: 'absolute', bottom: '12%', right: 0, zIndex: 3,
             background: '#FFFFFF',
             border: '2.5px solid var(--sb-ink-900)',
             borderRadius: 18,
             boxShadow: '5px 5px 0 var(--sb-ink-900)',
-            padding: '14px 18px',
+            padding: '12px 16px',
             transform: 'rotate(6deg)',
-            maxWidth: 220,
+            maxWidth: 200,
           }}>
             <div style={{
-              fontFamily: 'var(--font-hand)', fontSize: 26, fontWeight: 700,
+              fontFamily: 'var(--font-hand)', fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: 700,
               color: 'var(--sb-red-500)', lineHeight: 1.05,
             }}>
               "Naubos po niya — masarap daw!"
             </div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--fg-3)', marginTop: 6 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--fg-3)', marginTop: 6 }}>
               — Em, mom of Ivan, Grade 4
             </div>
           </div>
 
           {/* Floating hearts */}
-          <SbHeart size={32} style={{
-            position: 'absolute', top: 32, left: 8, zIndex: 4,
+          <SbHeart size={28} style={{
+            position: 'absolute', top: 28, left: 8, zIndex: 4,
             animation: 'sb-float 3.2s ease-in-out infinite',
             filter: 'drop-shadow(2px 2px 0 var(--sb-ink-900))',
           }} />
-          <SbHeart size={22} style={{
-            position: 'absolute', top: 100, left: -12, zIndex: 4,
+          <SbHeart size={20} style={{
+            position: 'absolute', top: 88, left: -8, zIndex: 4,
             animation: 'sb-float 3.6s ease-in-out infinite 0.3s',
             filter: 'drop-shadow(2px 2px 0 var(--sb-ink-900))',
           }} />
-          <SbHeart size={18} style={{
-            position: 'absolute', top: 200, right: 12, zIndex: 4,
+          <SbHeart size={16} style={{
+            position: 'absolute', top: 180, right: 12, zIndex: 4,
             animation: 'sb-float 4s ease-in-out infinite 0.6s',
             filter: 'drop-shadow(2px 2px 0 var(--sb-ink-900))',
           }} />

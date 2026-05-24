@@ -2,12 +2,10 @@
 import * as React from "react";
 import { SbButton, SbBadge, SbNoise, SbHeart } from "@/components/primitives";
 
-// CTA band + Footer
 export const CTA = () => {
   return (
-    <section id="cta" style={{
+    <section id="cta" className="sb-section-pad" style={{
       background: 'var(--sb-red-500)',
-      padding: '120px 32px',
       position: 'relative', overflow: 'hidden',
       borderTop: '2.5px solid var(--sb-ink-900)',
     }}>
@@ -15,10 +13,10 @@ export const CTA = () => {
 
       {/* Decorative hearts */}
       {[
-        { top: 60, left: '8%', size: 36, rot: -15, delay: 0 },
-        { top: 80, right: '12%', size: 28, rot: 12, delay: 0.4 },
-        { bottom: 60, left: '15%', size: 44, rot: 8, delay: 0.8 },
-        { bottom: 100, right: '8%', size: 32, rot: -10, delay: 0.2 },
+        { top: 60, left: '8%', size: 32, rot: -15, delay: 0 },
+        { top: 80, right: '12%', size: 26, rot: 12, delay: 0.4 },
+        { bottom: 60, left: '15%', size: 40, rot: 8, delay: 0.8 },
+        { bottom: 80, right: '8%', size: 28, rot: -10, delay: 0.2 },
       ].map((h, i) => (
         <SbHeart key={i} size={h.size} style={{
           position: 'absolute', ...h,
@@ -29,16 +27,13 @@ export const CTA = () => {
         }} />
       ))}
 
-      <div style={{
-        maxWidth: 1000, margin: '0 auto', textAlign: 'center',
-        position: 'relative', zIndex: 1,
-      }}>
+      <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <SbBadge color="yellow">For school administrators & PTA leads</SbBadge>
 
         <h2 style={{
           fontFamily: 'var(--font-body)', fontWeight: 900,
-          fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: 0.98,
-          letterSpacing: '-0.025em', margin: '24px 0 24px',
+          fontSize: 'clamp(36px, 6vw, 80px)', lineHeight: 0.98,
+          letterSpacing: '-0.025em', margin: '20px 0 20px',
           color: '#FFFFFF', textWrap: 'balance',
         }}>
           Bring{' '}
@@ -52,14 +47,14 @@ export const CTA = () => {
         </h2>
 
         <p style={{
-          fontSize: 20, color: 'rgba(255,255,255,0.92)',
-          fontWeight: 500, maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.5,
+          fontSize: 'clamp(15px, 2vw, 20px)', color: 'rgba(255,255,255,0.92)',
+          fontWeight: 500, maxWidth: 680, margin: '0 auto 36px', lineHeight: 1.5,
         }}>
           We'll come visit, taste-test with your kids, and have your canteen
           serving real food in 6 weeks. No setup fee.
         </p>
 
-        <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 32 }}>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
           <SbButton variant="yellow" size="lg" href="#">
             Book a kitchen visit
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -70,11 +65,8 @@ export const CTA = () => {
           </SbButton>
         </div>
 
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 10,
-          color: 'rgba(255,255,255,0.85)', fontSize: 14, fontWeight: 600,
-        }}>
-          <SbHeart size={18} />
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.85)', fontSize: 13, fontWeight: 600, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <SbHeart size={16} />
           Already serving integrated-school branches in Antipolo &amp; Iloilo
         </div>
       </div>
@@ -84,31 +76,21 @@ export const CTA = () => {
 
 export const Footer = () => {
   return (
-    <footer style={{
-      background: 'var(--sb-ink-900)', color: '#FFFFFF',
-      padding: '64px 32px 40px',
-    }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1.4fr 1fr 1fr 1fr',
-          gap: 48, marginBottom: 48,
-        }}>
+    <footer style={{ background: 'var(--sb-ink-900)', color: '#FFFFFF', padding: 'clamp(40px,6vw,64px) 20px 36px' }}>
+      <div className="sb-container">
+        <div className="sb-footer-grid">
           <div>
             <div style={{
               display: 'inline-block',
               background: 'var(--sb-cream-100)',
-              padding: '10px 14px',
-              borderRadius: 14,
+              padding: '8px 12px', borderRadius: 14,
               border: '2.5px solid var(--sb-ink-900)',
               boxShadow: '4px 4px 0 var(--sb-yellow-300)',
-              marginBottom: 18,
+              marginBottom: 16,
             }}>
-              <img src="/sunbites-logo.png" alt="Sunbites" style={{
-                height: 56, width: 'auto', display: 'block',
-              }} />
+              <img src="/sunbites-logo.png" alt="Sunbites" style={{ height: 48, width: 'auto', display: 'block' }} />
             </div>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', maxWidth: 320, lineHeight: 1.55 }}>
+            <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.7)', maxWidth: 320, lineHeight: 1.55 }}>
               A school canteen run by a real kitchen. Cooked fresh every morning by
               Ms. Nej and team. Serving Filipino school kids since 2023.
             </p>
@@ -144,22 +126,16 @@ export const Footer = () => {
           ].map((col, i) => (
             <div key={i}>
               <div style={{
-                fontSize: 12, fontWeight: 800, letterSpacing: '0.14em',
-                textTransform: 'uppercase', color: 'var(--sb-yellow-300)', marginBottom: 16,
+                fontSize: 11, fontWeight: 800, letterSpacing: '0.14em',
+                textTransform: 'uppercase', color: 'var(--sb-yellow-300)', marginBottom: 14,
               }}>{col.h}</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
                 {col.items.map((it, j) => (
                   <li key={j}>
                     {it.href ? (
-                      <a href={it.href} style={{
-                        color: 'rgba(255,255,255,0.85)', textDecoration: 'none',
-                        fontSize: 14, fontWeight: 600,
-                      }}>{it.l}</a>
+                      <a href={it.href} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: 13.5, fontWeight: 600 }}>{it.l}</a>
                     ) : (
-                      <span style={{
-                        color: 'rgba(255,255,255,0.7)',
-                        fontSize: 14, fontWeight: 600,
-                      }}>{it.l}</span>
+                      <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13.5, fontWeight: 600 }}>{it.l}</span>
                     )}
                   </li>
                 ))}
@@ -170,13 +146,13 @@ export const Footer = () => {
 
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.12)',
-          paddingTop: 24, display: 'flex',
+          paddingTop: 22, display: 'flex',
           justifyContent: 'space-between', alignItems: 'center',
-          flexWrap: 'wrap', gap: 16,
-          fontSize: 13, color: 'rgba(255,255,255,0.6)', fontWeight: 600,
+          flexWrap: 'wrap', gap: 14,
+          fontSize: 12.5, color: 'rgba(255,255,255,0.6)', fontWeight: 600,
         }}>
           <div>© 2025 Sunbites Kitchen Inc. — Made with ❤️ in the Philippines.</div>
-          <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy</a>
             <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Terms</a>
             <a href="https://www.facebook.com/profile.php?id=61576901724784" target="_blank" rel="noopener" style={{ color: 'inherit', textDecoration: 'none' }}>Facebook</a>
