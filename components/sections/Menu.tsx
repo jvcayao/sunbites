@@ -1,14 +1,23 @@
 import * as React from "react";
 import { SbBadge, SbEyebrow, SbNoise } from "@/components/primitives";
 
+const BADGE_RED    = 'var(--sb-red-500)';
+const BADGE_YELLOW = 'var(--sb-yellow-300)';
+const BADGE_GREEN  = 'var(--sb-green-400)';
+
+const photos = [
+  { src: '/photo-meal-01.jpeg', badge: 'Protein Day',    badgeColor: BADGE_RED,    label: 'Fried chicken with potatoes & steamed rice' },
+  { src: '/photo-meal-02.jpeg', badge: 'Seafood',        badgeColor: BADGE_GREEN,  label: 'Fish fillet with brown rice & fresh fruit' },
+  { src: '/photo-meal-03.jpeg', badge: 'Fun Friday',     badgeColor: BADGE_YELLOW, label: 'Pancit canton & garlic fried rice' },
+  { src: '/photo-meal-04.jpeg', badge: 'Snack Box',      badgeColor: BADGE_YELLOW, label: 'Pizza toast with papaya & mini buns' },
+  { src: '/photo-meal-05.jpeg', badge: 'Iron-Rich',      badgeColor: BADGE_RED,    label: 'Beef giniling with rice & apple slices' },
+  { src: '/photo-meal-06.jpeg', badge: 'Comfort Meal',   badgeColor: BADGE_RED,    label: 'BBQ pork with fried rice & watermelon' },
+  { src: '/photo-meal-07.jpeg', badge: 'Breakfast',      badgeColor: BADGE_GREEN,  label: 'Waffles & golden hash browns' },
+  { src: '/photo-meal-08.jpeg', badge: "Today's Spread", badgeColor: BADGE_RED,    label: 'Canteen counter — fresh every morning' },
+  { src: '/photo-meal-09.jpeg', badge: 'Light Day',      badgeColor: BADGE_YELLOW, label: 'Triangle sandwiches, freshly made' },
+];
+
 export const Menu = () => {
-  const days = [
-    { day: 'Mon', label: 'Monday', meal: 'Chicken adobo, rice, kalabasa', tag: 'Protein day', tagColor: 'var(--sb-red-500)', price: '₱135', emoji: '🍛' },
-    { day: 'Tue', label: 'Tuesday', meal: 'Beef giniling, rice, fresh mango', tag: 'Iron-rich', tagColor: 'var(--sb-yellow-400)', price: '₱135', emoji: '🥭' },
-    { day: 'Wed', label: 'Wednesday', meal: 'Fish fillet, rice, sayote + carrots', tag: 'Veggie day', tagColor: 'var(--sb-green-400)', price: '₱135', emoji: '🥬' },
-    { day: 'Thu', label: 'Thursday', meal: 'Pork menudo, rice, banana', tag: 'Comfort meal', tagColor: 'var(--sb-red-500)', price: '₱135', emoji: '🍚' },
-    { day: 'Fri', label: 'Friday', meal: 'Pancit canton, sliced pineapple', tag: 'Fun Friday', tagColor: 'var(--sb-yellow-400)', price: '₱135', emoji: '🍜' },
-  ];
 
   return (
     <section id="menu" className="sb-section-pad" style={{
@@ -62,36 +71,22 @@ export const Menu = () => {
           </div>
         </div>
 
-        {/* Menu day cards */}
-        <div className="sb-menu-days">
-          {days.map((d, i) => (
-            <div key={i} style={{
-              background: '#FFFFFF', borderRadius: 16,
-              border: '2.5px solid var(--sb-ink-900)',
-              boxShadow: '4px 4px 0 var(--sb-ink-900)',
-              padding: 16, display: 'flex', flexDirection: 'column', gap: 10,
-              minHeight: 240,
-            }}>
-              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 24, color: 'var(--fg-1)', lineHeight: 1 }}>{d.day}</div>
-              <div style={{ fontSize: 48, lineHeight: 1, margin: '2px 0 4px' }}>{d.emoji}</div>
-              <div style={{
-                display: 'inline-block', alignSelf: 'flex-start',
-                background: d.tagColor, color: '#FFFFFF',
-                border: '2px solid var(--sb-ink-900)',
-                padding: '3px 8px', borderRadius: 999,
-                fontSize: 10, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase',
-              }}>{d.tag}</div>
-              <div style={{ fontWeight: 800, fontSize: 13, color: 'var(--fg-1)', lineHeight: 1.3, flex: 1 }}>{d.meal}</div>
-              <div style={{
-                paddingTop: 8, borderTop: '1.5px dashed var(--border-1)',
-                fontWeight: 900, fontSize: 16, color: 'var(--fg-1)',
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              }}>
-                <span>{d.price}</span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--fg-3)', textTransform: 'uppercase' }}>per tray</span>
+        {/* Meal photo gallery */}
+        <div>
+          <div className="sb-meal-gallery">
+            {photos.map((p, i) => (
+              <div key={i} className="meal-photo-card">
+                <img src={p.src} alt={p.label} loading="lazy" />
+                <div className="meal-overlay">
+                  <span className="meal-badge" style={{ background: p.badgeColor }}>{p.badge}</span>
+                  <div className="meal-label">{p.label}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', marginTop: 14, fontSize: 13, fontWeight: 600, color: 'var(--fg-3)' }}>
+            Cooked fresh every morning. Menu rotates weekly. ₱135 per tray.
+          </p>
         </div>
 
         {/* Plans */}

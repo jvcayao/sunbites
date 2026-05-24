@@ -214,6 +214,68 @@
 .sb-portal-features { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 640px) { .sb-portal-features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
 
+/* Meal photo gallery bento grid */
+.sb-meal-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .sb-meal-gallery { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (min-width: 1024px) {
+  .sb-meal-gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 300px 220px 220px;
+    gap: 14px;
+  }
+  .sb-meal-gallery .meal-photo-card { aspect-ratio: unset !important; height: 100%; }
+  .sb-meal-gallery .meal-photo-card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.meal-photo-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 2.5px solid var(--sb-ink-900);
+  box-shadow: 4px 4px 0 var(--sb-ink-900);
+  background: var(--sb-ink-900);
+  cursor: pointer;
+}
+.meal-photo-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.meal-photo-card:hover img { transform: scale(1.06); }
+.meal-photo-card .meal-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 40px 14px 14px;
+  background: linear-gradient(to top, rgba(26,22,17,0.88) 0%, transparent 100%);
+  display: flex; flex-direction: column; gap: 5px;
+}
+.meal-photo-card .meal-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 9px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--sb-ink-900);
+  border: 1.5px solid var(--sb-ink-900);
+  align-self: flex-start; white-space: nowrap;
+}
+.meal-photo-card .meal-label {
+  font-size: 13px; font-weight: 700; color: #ffffff;
+  line-height: 1.3; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+@media (min-width: 1024px) {
+  .meal-photo-card:first-child .meal-label { font-size: 16px; }
+  .meal-photo-card:first-child .meal-overlay { padding: 60px 20px 20px; }
+}
+
 /* Responsive hide/show */
 .sb-hide-mobile { display: none; }
 @media (min-width: 1024px) { .sb-hide-mobile { display: block; } }
