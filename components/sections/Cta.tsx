@@ -28,7 +28,7 @@ export const CTA = () => {
       ))}
 
       <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-        <SbBadge color="yellow">For school administrators & PTA leads</SbBadge>
+        <SbBadge color="yellow">For Sunbites parents</SbBadge>
 
         <h2 style={{
           fontFamily: 'var(--font-body)', fontWeight: 900,
@@ -36,27 +36,27 @@ export const CTA = () => {
           letterSpacing: '-0.025em', margin: '20px 0 20px',
           color: '#FFFFFF', textWrap: 'balance',
         }}>
-          Bring{' '}
+          Your child's meals,{' '}
           <span style={{
             fontFamily: 'var(--font-display)', fontWeight: 400,
             color: 'var(--sb-yellow-300)',
             WebkitTextStroke: '2.5px var(--sb-ink-900)',
             display: 'inline-block',
-          }}>Sunbites</span>{' '}
-          to your school.
+          }}>always</span>{' '}
+          in your hands.
         </h2>
 
         <p style={{
           fontSize: 'clamp(15px, 2vw, 20px)', color: 'rgba(255,255,255,0.92)',
           fontWeight: 500, maxWidth: 680, margin: '0 auto 36px', lineHeight: 1.5,
         }}>
-          We'll come visit, taste-test with your kids, and have your canteen
-          serving real food in 6 weeks. No setup fee.
+          Log in to the Parent's Portal to top up your child's wallet, see every
+          meal they ate, and get daily kitchen updates — all from your phone.
         </p>
 
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
-          <SbButton variant="yellow" size="lg" href="#">
-            Book a kitchen visit
+          <SbButton variant="yellow" size="lg" href="https://portal.sunbites.com.ph">
+            Log in to Parent's Portal
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </SbButton>
           <SbButton variant="ghost" size="lg" href="tel:+639074984172">
