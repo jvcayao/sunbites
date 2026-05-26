@@ -43,8 +43,8 @@ export const Nav = () => {
 
         {/* Desktop CTA */}
         <div className="sb-nav-cta">
-          <SbButton variant="primary" size="sm" href="#cta">
-            Bring Sunbites to your school
+          <SbButton variant="primary" size="sm" href="https://portal.sunbites.com.ph/login">
+            Login to Parent{"'"}s Portal
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </SbButton>
         </div>
